@@ -10,9 +10,6 @@ QUAD_OBJS = quadratic.o quadratic_c.o quadratic_s.o
 %.o: %.s
 	as -g -o $@ $<
 
-$(PROGS): $(OBJS)
-	gcc -g -o $@ $^
-
 all: add4 min quadratic
 
 add4: $(ADD4_OBJS)
@@ -25,4 +22,4 @@ quadratic: $(QUAD_OBJS)
 	gcc -g -o $@ $^
 	
 clean:
-	rm -rf $(PROGS) $(OBJS)
+	rm -rf $(PROGS) $(ADD4_OBJS) $(MIN_OBJS) $(QUAD_OBJS)
